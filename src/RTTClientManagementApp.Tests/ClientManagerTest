@@ -1,0 +1,45 @@
+using Xunit;
+
+public class ClientManagerTests
+{
+    [Fact]
+    public void ValidateClient_ValidClient_DoesNotThrow()
+    {
+        // Arrange
+        var client = new Client
+        {
+            Name = "John Doe",
+            Gender = "Male",
+            Addresses = new List<Address>
+            {
+                new Address { Type = "Residential", Street = "123 Main St", City = "Anytown", State = "State", ZipCode = "12345" }
+            },
+            ContactInfos = new List<ContactInfo>
+            {
+                new ContactInfo { Type = "Cell Number", Value = "123-456-7890" }
+            }
+        };
+        var manager = new ClientManager();
+
+        // Act & Assert
+        var exception = Record.Exception(() => manager.ValidateClient(client));
+        Assert.Null(exception);
+    }
+
+    [Fact]
+    public void ValidateClient_InvalidClient_ThrowsArgumentException()
+    {
+        // Arrange
+        var client = new Client
+        {
+            Name = "",
+            Gender = "Male",
+            Addresses = new List<Address>(),
+            ContactInfos = new List<ContactInfo>()
+        };
+        var manager = new ClientManager();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => manager.ValidateClient(client));
+    }
+}

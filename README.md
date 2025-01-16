@@ -1,5 +1,4 @@
-# RTTClientManagementApp# RTT Client Management Application
-
+# RTTClientManagementApp
 ## Overview
 
 The RTT Client Management Application is designed to capture and maintain client information, including multiple addresses and contact information. It supports exporting client data to a CSV file, making it easy to manage and share client details.
@@ -10,7 +9,7 @@ The RTT Client Management Application is designed to capture and maintain client
 - Manage multiple addresses and contact information for each client.
 - Export client and address data to a CSV file (excluding contact numbers).
 - Built with a 3-tier architecture for scalability and maintainability.
-- Asynchronous operations for improved performance.
+- Asynchronous operations for improved performance.§
 - Robust error handling and logging using NLog.
 
 ## Architecture
